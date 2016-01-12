@@ -1,0 +1,56 @@
+
+%%%^^A \todo{text for installation needs to be included here}
+%%%^^A \todo{description of siunitx and examples}
+%%%^^A \todo{4 numbered levels are required}
+%%%^^A \landscapeformat
+%%%^^A \portraitformat
+  %superfluous additional text and extra words to stretch the tabular width to textwidth} \\
+  %         \item subitem 1
+  %         \item subitem 2
+  %         \begin{itemize}
+      %             \item subsubitem 1
+      %             \item subsubitem 2
+      %         \end{itemize}
+  %         \item subitem 3
+  %     \end{enumerate}
+%%% master.tex file:
+%% !TeX TXS-program:bibliography = txs:///biber
+%%
+%% Files required for compilation:
+%% literatur.bib
+%% TestFlowChart.pdf
+%%
+%% Compilation in TeXStudio including bibliography and other lists:
+%% Press keys in the following order:
+%% F6 (compile document)
+%% F11/F8 (compile bibliography)
+%% If remove one % from the first line biber will be used automatically.
+%% F6 (merge document and bibliography as well as other lists)
+%%
+%%---------------------------------------------
+
+\documentclass{pharmrep}
+
+%%% Load your own LaTeX packages (if really necessary)
+\usepackage{blindtext}
+
+%%% Declaration of user and file information
+\Applicant{Testpharma Inc.}
+\DrugProduct{Test Drug 500mg Tablets}
+\PharmRepTitle{3.2.S.x.y Quality Documentation -- Example with usual Layout-Settings}
+\eCTDno{eCTD Sequence Number 0001}
+\BibFileName{literatur.bib} % Name of the bibliography file with extension .bib, e.g.
+
+%%% define entries for glossary:
+\newglossaryentry{gls:ICH}{name={ICH},description={International Conference on Harmonisation of
+Technical Requirements for Registration of Pharmaceuticals for Human Use}}
+
+\begin{document}
+%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%
+
+\section{First section}
+
+\printnoidxglossary[title={List of Abbreviations}]% not printed until at least 1 abbreviation is used in text
+\printbibliography% not printed until at least 1 citation is used in text
+\end{document}

@@ -1,0 +1,66 @@
+\input docstrip.tex
+\keepsilent
+\askforoverwritefalse
+\preamble
+Copyright (C) 2015,2016 by Barbara Bredner <bredner@bb-sbl.de>,
+Barbara Jentges <barbara.jentges@phact.ch> and
+Martin Sievers <martin.sievers@schoenerpublizieren.de>
+
+This work may be distributed and/or modified under the
+conditions of the LaTeX Project Public License (LPPL), either
+version 1.3c of this license or (at your option) any later
+version.  The latest version of this license is in the file:
+
+http://www.latex-project.org/lppl.txt
+
+This work is "maintained" (as per LPPL maintenance status) by
+Barbara Bredner, Barbara Jentges and Martin Sievers.
+
+This work consists of all files listed in manifest.txt.
+\endpreamble
+\postamble
+
+\endpostamble
+
+\usedir{tex/latex/pharmrep}
+\nopostamble
+\generate{
+  \file{\jobname.cls}{\from{\jobname.dtx}{class}}
+}
+\nopreamble\nopostamble
+\Msg{*********************************************************}
+\Msg{*}
+\Msg{* To finish the installation you have to move the}
+\Msg{* following file into a directory searched by TeX:}
+\Msg{*}
+\Msg{* \space\space pharmrep.cls}
+\Msg{*}
+\Msg{* To produce the documentation run the file pharmrep.dtx}
+\Msg{* through LaTeX (twice).}
+\Msg{*}
+\Msg{* \space\space makeindex -s gglo.ist -o pharmrep.gls pharmrep.glo}
+\Msg{* \space\space makeindex -s gind.ist pharmrep.idx}
+\Msg{*}
+\Msg{* through makeIndex to produce the glossary. Finally, run PdfLaTeX once again.}
+\Msg{*}
+\Msg{* Das ist schon alles!}
+\Msg{*}
+\Msg{* Happy TeXing!}
+\Msg{*********************************************************}
+\endbatchfile
+
+%%%^^A \todo{text for installation needs to be included here}
+%%%^^A \todo{description of siunitx and examples}
+%%%^^A \todo{4 numbered levels are required}
+%%%^^A \landscapeformat
+%%%^^A \portraitformat
+  %superfluous additional text and extra words to stretch the tabular width to textwidth} \\
+  %         \item subitem 1
+  %         \item subitem 2
+  %         \begin{itemize}
+      %             \item subsubitem 1
+      %             \item subsubitem 2
+      %         \end{itemize}
+  %         \item subitem 3
+  %     \end{enumerate}
+%%% master.tex file:
