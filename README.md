@@ -10,7 +10,6 @@ See:     http://www.latex-project.org/lppl.txt
 ------------------------------------------------------------------------
 
 PharmRep is a class for medical reports based on the class scrartcl (KOMA-Script).  
-It calls different packages for a more convenient writing of medical reports.
 
 The most recent stable version will always be released on CTAN. Right now there is  
 only a beta version available.
