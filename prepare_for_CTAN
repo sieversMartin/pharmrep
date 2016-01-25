@@ -2,4 +2,4 @@
 # Use this file on a unix system to generate the zip archive for CTAN
 # ctanify is part of TeX Live distributions
 #
-ctanify pharmrep.ins pharmrep.pdf README.md manifest.txt "sRGB_IEC61966-2-1_black_scaled.icc=tex/latex/pharmrep" "pharmrep-template.tex=doc/latex/pharmrep" "pharmrep-template.bib=doc/latex/pharmrep" "ICC_LICENSE.txt=tex/latex/pharmrep" "ctanlion.pdf=doc/latex/pharmrep" "LatexCTD.pdf=doc/latex/pharmrep" "pdfexample.pdf=doc/latex/pharmrep" "TexStudioBiber.jpg=doc/latex/pharmrep"
+ctanify pharmrep.ins pharmrep.pdf README.md manifest.txt "pharmrep-template.tex=doc/latex/pharmrep" "pharmrep-template.bib=doc/latex/pharmrep" "ICC_LICENSE.txt=tex/latex/pharmrep" "ctanlion.pdf=doc/latex/pharmrep" "LatexCTD.pdf=doc/latex/pharmrep" "pdfexample.pdf=doc/latex/pharmrep" "TexStudioBiber.jpg=doc/latex/pharmrep" "sRGB_IEC61966-2-1_black_scaled.icc=tex/latex/pharmrep"

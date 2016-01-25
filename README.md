@@ -1,6 +1,7 @@
 # PharmRep
 -----------------------------------------------------------------------
-PharmRep -- A LaTeX class for Medical Reports  
+PharmRep -- A LaTeX class for Medical Reports
+Version: 2.0  
 Author:  Barbara Bredner and Barbara Jentges and Martin Sievers  
 E-mail:  bredner@bb-sbl.de  
          barbara.jentges@phact.ch  

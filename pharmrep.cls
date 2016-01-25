@@ -23,13 +23,11 @@
 \NeedsTeXFormat{LaTeX2e}[1999/12/01]
 \ProvidesClass{pharmrep}
     [2016/01/12 v2.0BETA PharmRep -- a LaTeX package for medical reports]
-
 %%%^^A \todo{text for installation needs to be included here}
 %%%^^A \todo{description of siunitx and examples}
 %%%^^A \todo{4 numbered levels are required}
 %%%^^A \landscapeformat
 %%%^^A \portraitformat
-  %superfluous additional text and extra words to stretch the tabular width to textwidth} \\
   %         \item subitem 1
   %         \item subitem 2
   %         \begin{itemize}
@@ -72,6 +70,9 @@
    \hyphenchar\font=\string"7F
 \RequirePackage[english]{babel}
    \addto{\captionsenglish}{\renewcommand*{\contentsname}{Table of Contents}}
+   \addto{\extrasenglish}{\def\figureautorefname{Abb.}}
+   \addto{\extrasenglish}{\def\tableautorefname{table}}
+
 \RequirePackage{mathptmx} % times font
 \RequirePackage{couriers} % monospace fonts
 \RequirePackage{helvet}   % for sans serif fonts (\textsf{...} or \sffamiliy)
@@ -129,6 +130,8 @@
    \pdfpagewidth=\paperwidth%
    \pdfpageheight=\paperheight%
    \restoregeometry}
+\renewcommand{\fps@table}{htbp}
+\renewcommand{\fps@figure}{htbp}
 \RequirePackage[justification=RaggedRight,singlelinecheck=false,labelfont=bf,hypcap=false]{caption}
 \RequirePackage{rotating}
 \RequirePackage{booktabs}
@@ -169,7 +172,6 @@
       pdflang        = en,%
       bookmarks      = true,%
       pdfdisplaydoctitle = true,%
-      colorlinks         = true,%
       plainpages     = false,%
       hypertexnames  = false,%
       pdfpagelabels  = true,%
@@ -195,6 +197,10 @@
    \makenoidxglossaries
 \setcounter{tocdepth}{4}
 \setcounter{secnumdepth}{4}
+%%%\AtBeginDocument{\addto\extrasenglish{\def\figureautorefname{Abb.}}
+%%%\addto\extrasenglish{\def\tableautorefname{table}}}
+%%%\renewcaptionname{english}{\figureautorefname}{figure}
+%%%\renewcaptionname{english}{\tableautorefname}{tab}
 \newcommand*{\@Applicant}{}
 \newcommand*{\@DrugProduct}{}
 \newcommand*{\@PharmRepTitle}{}
