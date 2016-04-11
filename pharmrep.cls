@@ -22,21 +22,7 @@
 %% This work consists of all files listed in manifest.txt.
 \NeedsTeXFormat{LaTeX2e}[1999/12/01]
 \ProvidesClass{pharmrep}
-    [2016/01/12 v2.0BETA PharmRep -- a LaTeX package for medical reports]
-%%%^^A \todo{text for installation needs to be included here}
-%%%^^A \todo{description of siunitx and examples}
-%%%^^A \todo{4 numbered levels are required}
-%%%^^A \landscapeformat
-%%%^^A \portraitformat
-  %         \item subitem 1
-  %         \item subitem 2
-  %         \begin{itemize}
-      %             \item subsubitem 1
-      %             \item subsubitem 2
-      %         \end{itemize}
-  %         \item subitem 3
-  %     \end{enumerate}
-%%% master.tex file:
+    [2016/04/12 v2.0 PharmRep -- a LaTeX package for medical reports]
 \RequirePackage{kvoptions}
 \SetupKeyvalOptions {
    family  = pharmrep,%
@@ -70,12 +56,12 @@
    \hyphenchar\font=\string"7F
 \RequirePackage[english]{babel}
    \addto{\captionsenglish}{\renewcommand*{\contentsname}{Table of Contents}}
-   \addto{\extrasenglish}{\def\figureautorefname{Abb.}}
+   \addto{\extrasenglish}{\def\figureautorefname{figure}}
    \addto{\extrasenglish}{\def\tableautorefname{table}}
 
 \RequirePackage{mathptmx} % times font
 \RequirePackage{couriers} % monospace fonts
-\RequirePackage{helvet}   % for sans serif fonts (\textsf{...} or \sffamiliy)
+\RequirePackage[scaled=0.91]{helvet}   % for sans serif fonts (\textsf{...} or \sffamiliy)
 \RequirePackage{pifont}   % symbols
 \RequirePackage{textcomp} % symbols
 \RequirePackage{microtype}% microtypographic extensions
