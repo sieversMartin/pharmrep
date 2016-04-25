@@ -151,7 +151,7 @@ This work consists of all files listed in manifest.txt.
 % \GetFileInfo{\jobname.dtx}
 % \DoNotIndex{\newcommand,\newenvironment}
 %
-% \title{\pkg{pharmrep} -- A \LaTeX{} package for Medical Reports\thanks{This file
+% \title{\pkg{pharmrep} -- A \LaTeX{} package for Medical Reports <BJ an MS: Package Titel muss noch harmonisiert werden s.a. Manual-Part>\thanks{This file
 %   describes version \fileversion, last revised \filedate.}
 % }
 % \author{Barbara Bredner\thanks{Email: bredner@bb-sbl.de}\and Barbara Jentges\thanks{Email: barbara.jentges@phact.ch}\and Martin Sievers\thanks{Email: martin.sievers@schoenerpublizieren.de}}
@@ -175,7 +175,7 @@ This work consists of all files listed in manifest.txt.
 % <include general description about the package here>.
 % 
 % \subsection{Specific Packages included into PharmRep}
-% The PharmRep package includes a number of other packages that facilitate edit scientific texts and 
+% The PharmRep <BJ an MS: Gross-/Kleinschreibung> package includes a number of other packages that facilitate editing scientific texts and 
 % guarantee a level of harmonization throughout the complete submission-relevant documentation.
 %
 % \subsubsection{\pkg{siunitx} -- A Comprehensive (SI) Units Package}
@@ -207,7 +207,7 @@ This work consists of all files listed in manifest.txt.
 % One typical problem that may occur when using Latex respectively the PharmRep package may occur, 
 % when the PDF that was successfully compiled remains opened when further editing the tex-file. With the 
 % PDF opened, the compilation process cannot be performed and the following error message appears:
-% MedRepStyle<xx>.tex: Fehler; Zeile 30: I can't write on file 'MedRepManual23.pdf' ..
+% PharmRepStyle.tex: Fehler; Zeile 30: I can't write on file 'PharmRepManual23.pdf'.
 % Once the PDF is closed, compilation can be performed without any problems.
 %
 % \section{User Feedback and Reporting Bugs}
@@ -219,7 +219,7 @@ This work consists of all files listed in manifest.txt.
 % We would like to express our particular thanks to Martin Sievers, who supported the development of
 % the PharmRep with valuable input and tested the beta version, including identifying any incorrect output,
 % bad documentation and spelling mistakes in the documentation. His specific focus was the support in
-% solutions on how to create PDF/A-1b compatible files with the PharmRep package.
+% solutions on how to create PDF/A-1b compatible files with the PharmRep package. <BJ an MS: Da Du, Martin, jetzt als Autor dabei ist, koennte dieses Kapitel geloescht werden, oder?>
 %
 % \section{zu behebende Probleme}
 % \begin{itemize}
@@ -504,8 +504,8 @@ This work consists of all files listed in manifest.txt.
 %
 %<*manual>
 \documentclass{pharmrep}
-\Applicant{Testpharma Inc.}
-\DrugProduct{Master Mega Break Solution}
+\Applicant{ExamplePharm Ltd, Fantasyland}
+\DrugProduct{ExAmple 500 mg Tablets}
 \PharmRepTitle{MedRep -- A Package to create eCTD-compliant PDFs}
 \eCTDno{eCTD Sequence Number xxxx} 
 \BibFileName{pharmrep-manual.bib} % Name of the bibliography file with extension .bib, e.g. biblio.bib
@@ -554,8 +554,6 @@ This work consists of all files listed in manifest.txt.
 
 \begin{document}
 \section{Introduction and Scope}
-<hier weitere Hintergrundinformationen einfügen, z.B. strukturierte Dokumente / bookmarks in PDFs; 
-ICH M4R3; eCTD Spec; FDA-PDF-Spec>
 The current manual is structured and formatted according to a typical submission file that is planned to 
 be included into an electronic dossier (either NeeS or eCTD) in portable document format (PDF). When 
 creating a file by using \LaTeX, the manual should be read in connection with the respective 
@@ -596,16 +594,16 @@ numbering within the document can be used, for example, 1, 1.1, 2, 3, 3.1, 3.2 e
 (\eg 2.6.6.3.2.1) is also considered acceptable.
 \end{itemize}
 
-\subsection{Additional Settings that need to be considered for Portable Document Files}
+\subsection{Additional Settings that need to be considered for eCTD-compliant PDFs}
 With the eCTD becoming the mandatory format of a dossier in the major industrial regions of the world, 
 specific settings in the PDF documents as addressed in the ICH eCTD specification <include reference 
 here> 
-need to be considered in the submission-relevant documents. Additional regional settings may need to 
+need to be considered in the submission-relevant documents. Additional regional settings must 
 be 
 considered as addressed in the region-specific Module 1 eCTD specifications.
 
 \section{Short Description about the Features of \PharmRep}
-PharmRep is a 'ready-to-use' package for creating eCTD-compliant PDFs with high-level layout that is 
+PharmRep is a 'ready-to-use' package for creating eCTD-compliant PDFs with professional layout that is 
 harmonized all over the submission files created with \PharmRep. \PharmRep uses the format settings as 
 required for submission relevant documents with view to becoming eCTD-PDFs. Once compiled, only 
 minor PDF-settings need to be completed in ADOBE (\eg `initial view', etc as addressed in chapter xx of the 
