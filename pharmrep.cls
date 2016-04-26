@@ -22,7 +22,7 @@
 %% This work consists of all files listed in manifest.txt.
 \NeedsTeXFormat{LaTeX2e}[1999/12/01]
 \ProvidesClass{pharmrep}
-    [2016/04/12 v2.0 PharmRep -- a LaTeX package for medical reports]
+    [2016/04/26 v2.0 PharmRep -- a LaTeX package for medical reports]
 \RequirePackage{kvoptions}
 \SetupKeyvalOptions {
    family  = pharmrep,%
@@ -63,7 +63,8 @@
 \RequirePackage{couriers} % monospace fonts
 \RequirePackage[scaled=0.91]{helvet}   % for sans serif fonts (\textsf{...} or \sffamiliy)
 \RequirePackage{pifont}   % symbols
-\RequirePackage{textcomp} % symbols
+\RequirePackage[full]{textcomp} % symbols
+\RequirePackage{upquote}
 \RequirePackage{microtype}% microtypographic extensions
 \RequirePackage{xspace}   % automatic spacing with own commands
 \RequirePackage{graphicx}
@@ -132,7 +133,7 @@
    \reversemarginpar
    \setlength{\marginparwidth}{20mm}
 
-\RequirePackage[babel]{csquotes}
+\RequirePackage[autostyle]{csquotes}
 \RequirePackage[backend=biber,%
    style=authoryear,%
    ]{biblatex}
