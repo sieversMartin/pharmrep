@@ -84,7 +84,7 @@ This work consists of all files listed in manifest.txt.
 %<class>\NeedsTeXFormat{LaTeX2e}[1999/12/01]
 %<class>\ProvidesClass{pharmrep}
 %<*class>
-    [2016/04/12 v2.0 PharmRep -- a LaTeX package for medical reports]
+    [2016/04/26 v2.0 PharmRep -- a LaTeX package for medical reports]
 %</class>
 %<*driver>
 \documentclass{ltxdoc}
@@ -97,7 +97,7 @@ This work consists of all files listed in manifest.txt.
 %\usepackage{graphicx}
 %\usepackage{tikz}
 %\usepackage{caption}
-\usepackage[babel]{csquotes}
+\usepackage[autostyle]{csquotes}
 %\usepackage{biblatex}
 %\addbibresource{\jobname-template.bib}
 %\usepackage{chemfig}
@@ -298,7 +298,8 @@ This work consists of all files listed in manifest.txt.
 \RequirePackage{couriers} % monospace fonts
 \RequirePackage[scaled=0.91]{helvet}   % for sans serif fonts (\textsf{...} or \sffamiliy)
 \RequirePackage{pifont}   % symbols
-\RequirePackage{textcomp} % symbols
+\RequirePackage[full]{textcomp} % symbols
+\RequirePackage{upquote}
 \RequirePackage{microtype}% microtypographic extensions
 \RequirePackage{xspace}   % automatic spacing with own commands
 %    \end{macrocode}
@@ -391,7 +392,7 @@ This work consists of all files listed in manifest.txt.
    \reversemarginpar
    \setlength{\marginparwidth}{20mm}
 
-\RequirePackage[babel]{csquotes}
+\RequirePackage[autostyle]{csquotes}
 %    \end{macrocode}
 % Bibliography
 %    \begin{macrocode}
@@ -542,6 +543,8 @@ This work consists of all files listed in manifest.txt.
 \def\meta@font@select{\itshape}
 
 \newcommand{\pkg}[1]{\textsf{#1}}
+\newcommand{\prog}[1]{{#1}}
+\newcommand{\env}[1]{\texttt{#1}}
 
 \newcommand{\eg}{e.\,g.\xspace}
 \makeatother
@@ -554,21 +557,21 @@ This work consists of all files listed in manifest.txt.
 
 \begin{document}
 \section{Introduction and Scope}
-Regulatory data files about quality, safety and efficacy of medicinal products for human use that are intended to be transferred electronically to a regulatory agency must be provided in a specified format, the so-called "electronic Common Technical Document" (eCTD) - notably in the major industrial regions of the world.  
+Regulatory data files about quality, safety and efficacy of medicinal products for human use that are intended to be transferred electronically to a regulatory agency must be provided in a specified format, the so-called \enquote{electronic Common Technical Document} (eCTD) -- notably in the major industrial regions of the world.  
 
-The specification for the eCTD is based on XML technology (\underline{E}Xtensible \underline{M}arkup \underline{L}anguage) and defines criteria based on which an eCTD is considered technically valid. The eCTD has been developed by the ICH M2 Expert Working Group  as an internationally recognized format for electronic regulatory submissons (ICH eCTD Specification v3.2.2). The structure of an eCTD follows the modular pattern of the Common Technical Document (CTD) as was defined by the ICH M4 Expert Working Group beforehand. In addition, regionally differing eCTD specifications and validation criteria must be considered for Module 1, the non-common part of the CTD. 
+The specification for the eCTD is based on XML technology (\underline{E}Xtensible \underline{M}arkup \underline{L}anguage) and defines criteria based on which an eCTD is considered technically valid. The eCTD has been developed by the ICH M2 Expert Working Group  as an internationally recognized format for electronic regulatory submissions (ICH eCTD Specification v3.2.2). The structure of an eCTD follows the modular pattern of the Common Technical Document (CTD) as was defined by the ICH M4 Expert Working Group beforehand. In addition, regionally differing eCTD specifications and validation criteria must be considered for Module 1, the non-common part of the CTD. 
 
-Data and text files included in an eCTD are mostly of Portable Document Format (PDF). Basic document layout (e.g. margins, font, header and footer, pagination) have already been defined in relevant CTD guidance documents (ICH M4/R3; The M4 General Questions \& Answers Document). Additional properties and settings were specified for PDFs included in an eCTD  in order to ensure navigation and accessibility of the files (ICH eCTD Specification v3.2.2). 
+Data and text files included in an eCTD are mostly of Portable Document Format (PDF). Basic document layout (e.g. margins, font, header and footer, pagination) have already been defined in relevant CTD guidance documents (ICH M4/R3; The M4 General Questions \& Answers Document). Additional properties and settings were specified for PDF files included in an eCTD  in order to ensure navigation and accessibility of the files (ICH eCTD Specification v3.2.2). 
 
 \section{Properties of PDFs Created with \LaTeX{} by using Class PharmRep}
-While \LaTeX{} in general is a tool to create documents with professional layout (please refer to related publications, e.g. the comprehensive works of Frank Mittelbach and Michel Goossens), the tools provided by the class \PharmRep (for details see related package documentation) are intended to assist users with creating standardized regulatory documents in professional layout that meet the requirements laid down in the related eCTD specification. 
+While \LaTeX{} in general is a tool to create documents with professional layout (please refer to related publications, \eg the comprehensive works of Frank Mittelbach and Michel Goossens), the tools provided by the class \PharmRep (for details see related package documentation) are intended to assist users with creating standardized regulatory documents in professional layout that meet the requirements laid down in the related eCTD specification. 
 
-(\autoref{tab:PDFProp}) provides an overview of the major format settings and properties of PDFs created with \LaTeX{}/PharmRep. Apart from a few exemptions the PDFs created with PharmRep fulfil the requirements. The outstanding properties can easily be set by means of appropriate software.
+(\autoref{tab:PDFProp}) provides an overview of the major format settings and properties of PDFs created with \LaTeX{}/PharmRep. Apart from a few exemptions the PDFs created with \PharmRep fulfill the requirements. The outstanding properties can easily be set by means of appropriate software.
 
 % Table generated by Excel2LaTeX from sheet 'owssvr'
 \begin{table}[htbp]
 	\centering
-	\caption{Layout, Settings and Properties of PDFs created by PharmRep}\label{tab:PDFProp}
+	\caption{Layout, Settings and Properties of PDF files created by \PharmRep}\label{tab:PDFProp}
 	\begin{tabular}{rrr}
 		\toprule
 		Layout, Settings, Properties & Requirement & PharmRep \\
@@ -600,62 +603,67 @@ While \LaTeX{} in general is a tool to create documents with professional layout
 	\label{tab:addlabel}%
 \end{table}%
 
-\section{How to Use the PharmRep-Manual} 
+\section{How to Use the \PharmRep-Manual} 
 The present manual is intended to provide guidance on how to easily create regulatory documents with \LaTeX{} by using the class \PharmRep. 
 It is structured and formatted according to a typical regulatory document that is intended to form part of an eCTD. When creating a PDF by using \PharmRep 
 it is recommended to use it in connection with the respective \PharmRep template. 
 
 If any specific formatting or style settings are required in the document in question (e.g. inserting a table in landscape format) the related \LaTeX{} settings 
 can be copy-pasted from the manual directly into this document. The settings provided in this manual are far from being all exclusive, but focus on typical format 
-settings used in regulatory documents and were especially compiled for \LaTeX{}-beginners. 
+settings used in regulatory documents and were especially compiled for \LaTeX{} beginners. 
 The manual will be amended and updated on a regular basis.
 
-\section{Practical Part - Commands for Typical Layout Features}
+\section{Practical Part -- Commands for Typical Layout Features}
 In the following typical layout features of a submission-relevant PDF and their related commands in \LaTeX{} will be 
 discussed in detail.
-If any specific formatting or style settings are required in the document in question (e.g. the need to 
+
+If any specific formatting or style settings are required in the document in question (\eg the need to 
 create a table) the related \LaTeX{} settings can be copy-pasted from the manual directly into this document.
 The manual will be amended and updated on a regular basis.
 
 \subsection{Section Levels and Section Numbering}
-Numbering of sections, subsections and subsubsections is added automatically during the compilation.
+\PharmRep uses four levels of numbered sectioning levels during the compilation process. The numbering is indicated by the command \cs{section\marg{Heading}} for title level~1, \cs{subsection\marg{Heading}} for level~2, \cs{subsubsection\marg{Heading}} for level 3, and \cs{paragraph\marg{Heading}} for level 4. 
 
-%% \todo{4 numbered levels are required}
-The numbering is indicated by the command \cs{section} for title level 1, \cs{subsection} for level 2, 
-\cs{subsubsection} for level 3, and \cs{paragraph} for level 4. 
-Please note: Only the `section', `subsection',\dots titles will be automatically converted to bookmarks during 
+Please note: Only the titles of \enquote{section}, \enquote{subsection},\dots will be automatically converted to bookmarks during 
 the PDF creation.
 
-For paragraphs, text is usually in the same layout as the title, but a paragraph is not numbered. The 
-unnumbered `paragraph' levels will not be converted to bookmarks during the PDF creation. 
+The level below \cs{paragraph} is \cs{subparagraph}. Its heading is not numbered, nor will a PDF bookmark be set automatically.
 \begin{itemize}
-   \item Level 1 Title 1: sections: \verb|\section{Title}|
-   \item Subtitle 1.1 level 2 - Sub-Title 1.1: subsections: \verb|\subsection{Title}|
-   \item Section level 3 -- Subsub-Title 1.1.1: subsubsections: \verb|\subsubsection{Title}|
-   \item Section level 4 -- ParagraphTitle : paragraph: \verb|\paragraph{Title}|
-   \item Section level 5 -- Sub-ParagraphTitle : subparagraph: \verb|\subparagraph{Title}|
+   \item Level 1 Title 1: sections: \cs{section\marg{Heading}}
+   \item Subtitle 1.1 level 2 -- Sub-Title 1.1: subsections: \cs{subsection\marg{Heading}}
+   \item Section level 3 -- Subsub-Title 1.1.1: subsubsections: \cs{subsubsection\marg{Heading}}
+   \item Section level 4 -- ParagraphTitle : paragraph: \cs{paragraph\marg{Heading}}
+   \item Section level 5 -- Sub-ParagraphTitle : subparagraph: \cs{subparagraph\marg{Heading}}
 \end{itemize}
 
 
 \subsection{Common Formatting Functions}
 \subsubsection{Paragraphs and Line Breaks}
 \begin{itemize}
-	\item new paragraph: insert 1 or more blank line(s)  (more than 1 will be ignored during the 
-	compilation
+	\item new paragraph: insert one or more blank line(s)  (more than one will 
+      be ignored during the compilation
 	\item new line or line break: \verb|\newline|
 \end{itemize}
 
 \subsubsection{Hyphenation}
 \begin{itemize}
-	\item separate words: \verb| | 1 or more blanks (more than 1 will be ignored during the compilation)
+	\item separate words: \verb| | one or more blanks (more than one will be 
+      ignored during the compilation)
 	\item no break between two words: \verb|~|
-	\item enable hyphenation at specific locations of a word: \verb|\-| (\eg \verb|reac\-tion|) Usually not necessary since hyphenation is already enabled by the loaded packages
+	\item enable hyphenation at specific locations of a word (locally): \verb|\-| (\eg 
+      \verb|reac\-tion|). This is usually not necessary as hyphenation for the chosen language is 
+      enabled automatically.
+      
+      If you want to add a global hyphenation rule, please use \cs{hyphenation\marg{Words-with hyphens-to-set hyphenation-points}} in the preamble of your document.
 \end{itemize}
 
 \subsubsection{Quotation Marks}
+There are various ways to type typographically correct quotation marks:
 \begin{itemize}
-	\item quotation mark (``double'') \verb|``double''| 
-	\item quotation mark (`single') \verb|`single'| \todo{Hint to csquotes}
+	\item Double quotation mark (``double'') \verb|``double''| 
+	\item Single quotation mark (`single') \verb|`single'| 
+   \item In addition \PharmRep incorporates the \pkg{csquotes} package to use 
+      \verb|\enquote{...}|. This is then transfered into the correct output.
 \end{itemize}
 
 \subsubsection{Font Style}
@@ -664,14 +672,19 @@ unnumbered `paragraph' levels will not be converted to bookmarks during the PDF 
 	\item \textit{italic} text: \verb|\textit{text}|
 	\item {\small small text}: \verb|{\small small text}|
 	\item {\footnotesize footnotesize text}: \verb|{\footnotesize footnotesize text}|
-	\item {\tiny tiny text}: \verb|{\tiny tiny text}| (usually too small)
+	\item {\scriptsize scriptsize text}: \verb|\scriptsize scriptsize text|
+   \item {\tiny tiny text}: \verb|{\tiny tiny text}| (usually too small)
 \end{itemize}
 
 \subsubsection{Special Characters}
-In most cases a backslash (\textbackslash) directly in front of a special character will work, \eg
+\LaTeX{} uses a set of characters of reserved purposes, among them \%, \$, \&, \_. 
+In most cases a backslash (\textbackslash) directly in front of such a special 
+character will work, \eg
 \begin{itemize}
 	\item \% (percent): \verb|\%|
 	\item \& (ampersand): \verb|\&|
+   \item \$ (dollar): \verb|\$|
+   \item \_ (underscore): \verb|\_|
 \end{itemize}
 
 
@@ -779,12 +792,12 @@ Code for the combined list:
 \end{verbatim}
 
 \subsection{Tables}
-In \LaTeX{}, `table' is the name for a floating object (see p.~\pageref{subsubsec:TableFloating}), whereas 
-`tabular' provides the environment for tables. In a `tabularx' environment, the table width can be set (\eg 
-to \cs{textwidth}) and page breaks are enabled \footnote{for \PharmRep the package \pkg{ltablex} is used}.
+In \LaTeX{}, \enquote{table} is the name for a floating object (see p.~\pageref{subsubsec:TableFloating}), whereas 
+\enquote{tabular} provides the environment for tables. In a \enquote{tabularx} environment, the table width can be set (\eg 
+to \cs{textwidth}) and page breaks are enabled \footnote{For \PharmRep the package \pkg{ltablex} is used}.
 Creating tables with \LaTeX{} require some experience. In the following, basic instructions on how to create 
 tables are described. Alternatively, tables can be created in MS~Excel and converted into \LaTeX{} tables by 
-installing the Excel-add-in Excel2Latex. Tables can also be included as objects.
+installing the Excel-add-in \prog{Excel2Latex}. Tables can also be included as objects.
 
 \subsubsection{Caption of Tables}
 Every table included into a document requires a brief, informative title ('caption') that describes its 
@@ -802,7 +815,7 @@ beginning of the table caption that starts with ``Table'', followed by its numer
 
 Each table with a caption is automatically listed in the list of tables.
 
-\subsubsection{General Layout Pptions for Tables}
+\subsubsection{General Layout Options for Tables}
 \begin{verbatim}
 The instructions as given below create a basic table with two columns and three row. In general, columns 
 are separated by the symbol \& (ampersand) and rows are ended by using the command 
@@ -846,8 +859,7 @@ right & left & centered & fixed width &
 \end{minipage}%
 \end{verbatim}
 
-that results in the following PDF-printout: 
-
+that results in the following PDF output: 
 \begin{minipage}{\linewidth}
    \captionof{table}[xyz]{Some Options for tables}\label{tab:TabGenLayout}
    \begin{tabular}{rlcp{10mm}S}\toprule
@@ -863,10 +875,9 @@ that results in the following PDF-printout:
 \bigskip
 
 \subsubsection{General Commands for Table Layout}
-In the follwing, general commands for typical table layout is given.
+In the following, general commands for typical table layout are given.
 
 \paragraph{Column without and with Linebreak}
-
 \begin{description}
    \item[Column] \textbf{formats}
    \begin{description}
@@ -880,9 +891,8 @@ In the follwing, general commands for typical table layout is given.
       \item[with] \textbf{linebreak}
       \begin{description}
          \item[\texttt{p{<width>}}] parbox (`paragraph box') with predefined width
-         \item[\texttt{X}] only in \texttt{tabularx} environment: parbox with flexible width to meet 
-         the 
-         predefined tablewidth (e.g. \verb|{\linewidth}|) 
+         \item[\texttt{X}] only in \env{tabularx} environment: parbox with flexible width to meet 
+         the predefined tablewidth (\eg \verb|{\linewidth}|) 
       \end{description}
    \end{description}
    
@@ -897,7 +907,7 @@ In the follwing, general commands for typical table layout is given.
       every page of a table. The footer is defined at the beginning of a table!
    \end{description}
    
-   \paragraph{Table Lines - Horizontal and Vertical}	
+   \paragraph{Table Lines -- Horizontal and Vertical}	
    \item[Lines] Use horizontal lines rarely and avoid vertical lines always. Reasons and examples see \eg 
    \href{http://ctan.org/pkg/booktabs}{http://ctan.org/pkg/booktabs}
    \begin{description}
@@ -963,7 +973,7 @@ In the follwing, general commands for typical table layout is given.
 \newpage
 
 \landscapeformat
-\subsubsection{Long Table - Landscape Format}
+\subsubsection{Long Table -- Landscape Format}
 % Table generated by Excel2LaTeX from sheet 'Tabelle2'
 \captionof{table}{Example long table on a landscape page}\label{tab:longtableLandscape}
 \begin{tabularx}{\textwidth}{lcrX}
@@ -1046,7 +1056,7 @@ A & B & C \\\midrule
 \end{table}
 \end{verbatim}
 
-printed in list of tables as ``\ref{tab:tableFloatingObject} {\color{blue}short caption table}'' . The 
+printed in list of tables as \enquote{\ref{tab:tableFloatingObject} {\color{blue}short caption table}} . The 
 optional short title \verb|[short caption table]| in squared brackets is used for LOT.  If no short title is 
 given the whole caption is printed in the list of tables.
 
@@ -1075,21 +1085,21 @@ For floating tables or figures in a floating environment \verb|\begin{table}...\
 \verb|\caption[short]{title}\label{fig:figurelabel}| or \newline
 \verb|\caption[short]{title}\label{tab:tablabel}|
 
-\verb|[short]|: optional `short caption' being printed in the list of figures or list of tables, respectively, 
+\verb|[short]|: optional \enquote{short caption} being printed in the list of figures or list of tables, respectively, 
 and `title' used for the figure or table itself. The label is used for reference purposes, \eg
 
 \verb|\ref{fig:figurelabel}| or \verb|\ref{tab:tablabel}|
 
-Label names do not work with special characters (except `:') or blanks.
+Label names do not work with special characters (except \enquote{:}) or blanks.
 
 \subsubsection{MS Excel Add-in 'Excel2LaTeX'}
 Excel spreadsheets can be converted into a \LaTeX{} tabular structure manually or using third party 
-software, \eg Excel2LaTeX (available on \url{http://www.ctan.org/pkg/excel2latex}).
+software, \eg \prog{Excel2LaTeX} (available on \url{http://www.ctan.org/pkg/excel2latex}).
 
 Excel2LaTeX works for Windows, Mac OS X and Excel~2000 up to Excel~2010. For Excel~2007 and 
 Excel~2010 the add-in has to be activated within the options menu in Excel. After a restart of Excel and 
 the 
-activation of `Excel2LaTeX' as a secure macro the add-in excel2latex is available in the ribbon `Add-In'.
+activation of \prog{Excel2LaTeX} as a secure macro the add-in excel2latex is available in the ribbon `Add-In'.
 <diese Angaben müssen noch auf Korrektheit geprüft werden; ggfs. hier keine weiteren Angaben, 
 sondern nur Referenz auf das package, wo in der readme alle weiteren Details beschrieben sind>.
 
@@ -1101,14 +1111,14 @@ PDF/A-1b gefordert ist>.
 \subsection{Figures}
 Figures are not directly inserted into the \TeX{} file, but are created as separate files which are included 
 during the compilation. For PDF generation, file formats png, jpg or pdf are allowed, all others will 
-produce an error.The figure-files need to be stored in the same folder as the \TeX{} file (alternatively, the complete 
-file-path has to be provided). 
+produce an error.The figure files need to be stored in the same folder as the \TeX{} file (alternatively, the  
+file path, absolutely or relatively, has to be provided). If you store your graphic files in one specific directory, 
+you can as well use \cs{graphicspath\marg{Path to figures}}, \eg \verb|\graphicspath{{./Figures}}|.
 
 \subsubsection{Caption of Figures}
-Every figure included into a document requires a brief, informative title ('caption') that describes its 
+Every figure included into a document requires a brief, informative title (\enquote{caption}) that describes its 
 contents in nonsentence format <Let.Ref. ACS Style Guide>.  Figures are numbered sequentially with 
-arabic 
-numerals. 
+Arabic numerals. 
 Please make sure that every figure needs to be discussed within the text, whereas the figures should be 
 discussed sequentially, so that Figure 1 is discussed before Figure 2, Figure 2 before Figure 3, and so on 
 <ACS Style Guide>.
@@ -1120,7 +1130,7 @@ the beginning of the figure caption that starts with Figure, followed by its num
 
 Each figure with a caption is automatically listed in the list of figures.
 
-\subsubsection{Positioning of Figures - Floating versus Manual}\label{subsubsec:FigureFloating}
+\subsubsection{Positioning of Figures -- Floating versus Manual}\label{subsubsec:FigureFloating}
 \paragraph{Automatic Insertion of Figures (`Floating Figures')}
 \begin{figure}[hbpt]
    \includegraphics[width=0.2\linewidth]{ctanlion}
@@ -1196,7 +1206,7 @@ and `title' used for the figure or table itself. The label is used for reference
 
 Label names do not work with special characters (except `:') or blanks.
 
-\subsubsection{Including Figures from external PDFs into the \LaTeX{} File}\label{sec:includepdfs}
+\subsubsection{Including Figures from External PDF Files Into the \LaTeX{} File}\label{sec:includepdfs}
 Pictures, figures, tables and any other objects that are provided in PDF-files can be included into \LaTeX{} 
 by using the command \cs{includegraphics\oarg{options}\marg{filename}}. Special characters and spaces should be avoided 
 in the PDF file name!
@@ -1204,10 +1214,10 @@ in the PDF file name!
 
 Example
 \begin{itemize}
-	\item The figure of the PDF-file \verb|pdfexample.pdf| is planned to be included into the file 
+	\item The figure of the PDF file \verb|pdfexample.pdf| is planned to be included into the file 
 	\verb|master.tex| 
 	\item \verb|master.tex|: usual \LaTeX file with definition of styles, commands, etc.
-	\item \verb|pdfexample.pdf|: pdf file
+	\item \verb|pdfexample.pdf|: PDF file
 \end{itemize}
 
 \begin{minipage}{\linewidth}%
@@ -1229,22 +1239,15 @@ Example
 		\end{verbatim}%
 	}
 \end{minipage}%
-\bigskip
-
-
-
 
 \subsection{Footnotes in Text}
 Footnotes are set by including \verb|\footnote{text}| directly behind the word, where the footnote 
 should be added. No space should be placed between word and instruction. The footnote will be 
 automatically numbered and placed at the end of the page. 
 
-
-
 \subsection{Splitting Large Documents}
 Large documents can be split into several \verb|*.tex| files. Special characters should be avoided in the 
-PDF file name!. For an example see below:
-
+PDF file name! For an example see below:
 \begin{itemize}
 \item three files: \verb|master.tex|, \verb|part1.tex| and \verb|part2.tex|
 \item \verb|master.tex|: usual \LaTeX{} file with definition of styles, commands, etc.
@@ -1254,7 +1257,6 @@ PDF file name!. For an example see below:
 
 Typical commands for splitting documents are the following: <Kommandozeilen sind nicht klar, sollten 
 besser erläutert werden>.
-
 \begin{minipage}{\linewidth}
 \begin{verbatim}
 %%% master.tex file:
@@ -1272,25 +1274,23 @@ some more text
 \end{verbatim}
 \end{minipage}
 
-\subsection{Clipping of PDF Page}
+\subsection{Clipping of PDF Pages}
 Clipping of PDF pages is done via \verb|trim=<left> <top> <right> <bottom>| (with arbitrary units, \eg 
 mm, pt) and (mandatory!) \verb|clip|.
 
 <nicht klar, was hier passiert>.
 
 <NOTE: if a PDF/A-1b document is required, the external PDF needs to be PDF/A-1b compliant itself. This 
-can be created from other files (e.g. MS WORD, MS VISIO,etc) by using the 'print as' function and 
+can be created from other files (\eg MS WORD, MS VISIO,etc) by using the \enquote{print as} function and 
 choosing in the PDF-properties the setting to create a PDF/A-1b-compatible PDF>.
-
 \begin{figure}[htb]
 \centering
 \fcolorbox{blue}{white}{\includegraphics[page=1,trim = 60mm 170mm 90mm 40mm,clip]{pdfexample.pdf}}
 \caption[example including pdf]{example including pdf (colored box for demonstration purposes)}
 \end{figure}%
 
-
 \subsection{Bibliography with JabRef and Citations}
-\subsubsection{Extenal Bibliography with JabRef}
+\subsubsection{External Bibliography with JabRef}
 External sources (books, papers, websites, etc.) are stored in a separate file \verb|literatur.bib|. bib-files
 can be created using JabRef (\href{http://jabref.sourceforge.net/}{jabref.sourceforge.net/}), online and
 versions for local installation available).
@@ -1351,27 +1351,27 @@ Print all bibliographic entries cited in the text (independent of the entries in
 \verb|\printbibliography|%
 \printbibliography%
 
-\subsubsection{In-text Use of Universal Resource Locators (URLs)}
-A Universal Resource Locator \gls{abb:URL} (which is the path to a certain file on the World Wide Web)
+\subsubsection{In-text Use of Uniform Resource Locators (URLs)}
+A Uniform Resource Locator \gls{abb:URL} (which is the path to a certain file on the World Wide Web)
 can be included directly into the text on two different ways:
 \begin{itemize}
-\item by including the instruction \verb|\url{URL}| Inhalt...
-\item with different descriptive text or url: \verb|\href{URL}{text}|
+\item by including the macro \cs{url\marg{URL}}: hyper link to the URL
+\item with a different descriptive text for the URL: \cs{href\marg{URL}\marg{Text}}
 \end{itemize}
 
 Examples:%
 \verb|\url{http://ctan.org}| \url{http://ctan.org}
 
-\verb|\href{http://ctan.org}{ctan.org}| \href{http://ctan.org}{ctan.org}
+\verb|\href{http://ctan.org}{The Comprehensive TeX Archive Network}| \href{http://ctan.org}{The Comprehensive TeX Archive Network}
 
-\subsection{Creating a `List Abbreviations, Acronyms and Symbols'}\label{sec:glossary}
+\subsection{Creating a \enquote{List Abbreviations, Acronyms and Symbols}}\label{sec:glossary}
 Abbreviations, acronyms and symbols that are used within the text need to be pre-defined  in the
 preamble <where exactly?>, \eg\\
 \verb|\newglossaryentry{abb:eCTD}|\newline
 \hspace*{2em}\verb|{name={eCTD},|\newline
 \hspace*{2em}\verb|description={electronic Common Technical Document}}|
 
-After an abbreviation has been defined in the preamble, it can be used in the following text, e.g.
+After an abbreviation has been defined in the preamble, it can be used in the following text, \eg
 using \verb|\gls{abb:eCTD}|: \gls{abb:eCTD}
 
 using \verb|\gls{abb:CTD}|: \gls{abb:CTD}
@@ -1387,32 +1387,31 @@ automatically listed if a glossary is printed:\\
 \subsection{Setting Intra-Text Cross-References}
 Define unique label using\newline
 \verb|\label{sec:secdescription}|\newline
-Label names do not work with special characters (except `:') or blanks.
+Label names do not work with special characters (except \enquote{:}) or blanks.
 
-Labels can be used everywhere (sections, paragraphs, figures, tables,...)
+Labels can be used everywhere (sections, paragraphs, figures, tables, \dots)
 
 
 \subsection{Useful Commands to Facilitate Collaboration With Co-Authors}
-\subsubsection{Annotations in a tex-file}
-Annotations in the TeX{} file may be used for explanatory purposes -- or as a reminder that specific 
+\subsubsection{Annotations in a \TeX{} File}
+Annotations in the \TeX{} file may be used for explanatory purposes -- or as a reminder that specific 
 information is still missing and needs to be included into the document.
 Annotations only appear in the \TeX{} file, the are not converted into the PDF.
 
 Symbol for annotations in the \TeX{} file is \verb| %| (everything in a line after a \% is ignored).
 
-\subsubsection{Commenting in \TeX{} files}
+\subsubsection{Commenting in \TeX{} Files}
 A practical tool during the creation of a document is the inclusion of comments into the \TeX{} files. This 
 may serve as reminders, remaining action items or comments required during document review.
 
-\todo{a comment in the margin}Comments can be included with \verb|\todo{text}| for comments in the 
-margin and \verb|[inline]{text}| for comments in the text. Do not use \verb|\todo|-comments within other %environments (e.g. figures, tables, etc.)
+\todo{a comment in the margin}Comments can be included with \cs{todo\marg{text}} for comments in the 
+margin and \cs{todo[inline]\marg{text}} for comments in the text. Do not use \verb|\todo| comments within other environments (e.g. figures, tables, etc.)
 \todo[inline, color=green]{a green inline comment}
 \begin{verbatim}
 \todo{a comment in the margin}
 \todo[inline, color=green]{a green inline comment}
 \end{verbatim}
-If at least one \verb|\todo|-command is present in the text the `list of todonotes' will be printed using
-\verb|\listoftodos|.
+If at least one \verb|\todo| command is present in the text the \enquote{List of todonotes} will be printed automatically right at the beginning of your document.
 
 \subsubsection{How to Create PDF/A-1b Files}
 \todo{description to convert arbitrary graphs and documents (e.g. powerpoint slides) into pdf/a documents using printer functionality}
@@ -1422,13 +1421,14 @@ If at least one \verb|\todo|-command is present in the text the `list of todonot
 \todo{an BB: Diesen Abschnitt bitte auf Korrektheit prüfen}
 \LaTeX{} uses a number of file types. For details, reference is made to relevant \LaTeX{} publications, \eg
 Frank Mittelbach, Michel Goossens, Der LaTeX Begleiter.
+
 Some basic information about the different types of files, however, is required, in order to correctly
 organize these files when creating documents that are
 planned to be organized in an eCTD file and folder structure.
 
 <hier: Auszug aus Tab. 1.1 von Mittelbach/Goossens einfügen>.
 
-With reference to different ``texwelt'' discussions in this field,the question on how to handle the auxiliary
+With reference to different \enquote{texwelt} discussions in this field,the question on how to handle the auxiliary
 files that are created when creating \TeX{} and the corresponding PDF files, shall be addressed in this subsection.
 In summary, and in order to enable a correct and smooth PDF creation, it can be concluded that the auxiliary files are recommended to be listed together with the \TeX{} files in one and the same folder and or sub-folder.
 
@@ -1509,7 +1509,7 @@ droplet/.style={ball color=blue!20, opacity=0.4},%
 \draw[droplet] (4.5,1,-0.5) circle (3.5cm);%
 \end{scope}%
 \end{tikzpicture}
-\caption[TikZ example graph rusting iron]{TikZ example graph rusting iron,
+\caption[\pkg{TikZ} example graph rusting iron]{\pkg{TikZ} example graph rusting iron,
 \url{http://www.texample.net/tikz/examples/rusting-iron/}}
 \end{figure}
 
@@ -1520,7 +1520,7 @@ droplet/.style={ball color=blue!20, opacity=0.4},%
 \appendix
 \section{Short List of Common Commands}
 
-Table generated by Excel2LaTeX from sheet `Tabelle1'
+Table generated by \prog{Excel2LaTeX} from sheet \enquote{Tabelle1}
 
 {\small
 \todo{'Appendix Nummerierung 'A'/ A.1. etc. und in ToC übernehmen}
@@ -1535,10 +1535,10 @@ Table generated by Excel2LaTeX from sheet `Tabelle1'
 \cs{autoref\marg{key}} & references label and type of reference \\
 \cs{pageref\marg{key}} & references pagenumber of label \\
 \cs{autopageref\marg{key}} & references pagenumber of label and type of reference \\
-\cs{textbf\marg{text}} & bold text \\
-\cs{textit\marg{text}} & italic text \\
-\cs{small\marg{text}} & small text \\
-\cs{footnotesize\marg{text}} & footnotesize text \\
+\cs{textbf\marg{text}} & \texttt{bold} text \\
+\cs{textit\marg{text}} & \texttt{italic} text \\
+\cs{small\marg{text}} & \texttt{small} text \\
+\cs{footnotesize\marg{text}} & \texttt{footnotesize} text \ \\
 \cs{\%} & percent (\%) \\
 \cs{\&} & ampersand (\&) \\
 \cs{url\marg{URL}} & url \\
@@ -1556,9 +1556,9 @@ Table generated by Excel2LaTeX from sheet `Tabelle1'
 \cs{item} text & item in list \\
 \cs{begin\{description\}} & description list \\
 \cs{item[label]} text & item with label (description list only) \\
-\cs{input\marg{filename.tex}} & copy-paste contents of tex-file \\
+\cs{input\marg{filename.tex}} & copy-paste contents of \TeX{} file \\
 \cs{todo\marg{text}} & comment or todo \\
-\cs{cite\marg{bibkey}} & citation of source stored with `bibkey' (in `filename'.bib) \\
+\cs{cite\marg{bibkey}} & citation of source stored with \marg{bibkey} (in `filename'.bib) \\
 \cs{newglossaryentry\marg{glskey}\marg{...}\marg{...}} & define new glossary entry (at the beginning of the \TeX{} file) \\
 \cs{gls\marg{glskey}} & use abbreviation stored with `glskey' \\
 \end{tabularx}}
