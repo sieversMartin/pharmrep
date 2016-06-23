@@ -22,8 +22,7 @@ precisely, it explains how the locutions "Work" and "Compiled Work",
 used in the LaTeX Project Public License, are to be interpreted
 in the case of this work.
 
-January 12, 2016 (vers. 2.0)
-
+April 12, 2016 (vers. 2.0)
 
 
 MEANING OF THE TERM "Work"
@@ -63,12 +62,13 @@ ICC_LICENSE.txt
 
 
 AND
-b) the following 4 files:
+b) the following 5 files:
 
 pharmrep.cls          --  LaTeX document class
 pharmrep.pdf          --  class documentation
+pharmrep-manual.tex   --  manual
+pharmrep-manual.bib   --  bibfile for manual
 pharmrep-template.tex --  template for article
-pharmrep-template.bib --  template for bibliography
 
 The file `pharmrep.pdf' is obtained by submitting to the 
 program pdflatex the file `pharmrep.dtx', following the same steps as 

@@ -22,12 +22,7 @@
 %% This work consists of all files listed in manifest.txt.
 \NeedsTeXFormat{LaTeX2e}[1999/12/01]
 \ProvidesClass{pharmrep}
-    [2016/01/12 v2.0BETA PharmRep -- a LaTeX package for medical reports]
-%%%^^A \todo{text for installation needs to be included here}
-%%%^^A \todo{description of siunitx and examples}
-%%%^^A \todo{4 numbered levels are required}
-%%%^^A \landscapeformat
-%%%^^A \portraitformat
+    [2016/04/26 v2.0 PharmRep -- a LaTeX package for medical reports]
   %         \item subitem 1
   %         \item subitem 2
   %         \begin{itemize}
@@ -37,6 +32,13 @@
   %         \item subitem 3
   %     \end{enumerate}
 %%% master.tex file:
+%%% TODO: %%%todo{a comment in the margin}Comments can be included with \verb|\todo{text}| for comments in the %margin and \verb|[inline]{text}| for comments in the text. Do % TODO: % not use \verb|\todo|-comments within other %environments (e.g. figures, tables, etc.)
+%%% TODO: %%%%todo[inline, color=green]{a green inline comment}
+%%% TODO: %%%%todo{differentiation between separate 'List of Abbreviations' and 'Glossary' foreseen?}
+%%% TODO: %%%todo{description to convert arbitrary graphs and documents (e.g. powerpoint slides) into pdf/a %documents using printer functionality}
+%%% TODO: %%%todo{other useful things for pdf/a compatibility using Acrobat Professional}
+%%% TODO: %%%todo{an BB: Diesen Abschnitt bitte auf Korrektheit prüfen}
+%%% TODO: %%%todo{an BJ: Subfolder mit CTD Example-Datei erzeugen und als screenshot-Figure einbinden}
 \RequirePackage{kvoptions}
 \SetupKeyvalOptions {
    family  = pharmrep,%
@@ -70,14 +72,14 @@
    \hyphenchar\font=\string"7F
 \RequirePackage[english]{babel}
    \addto{\captionsenglish}{\renewcommand*{\contentsname}{Table of Contents}}
-   \addto{\extrasenglish}{\def\figureautorefname{Abb.}}
+   \addto{\extrasenglish}{\def\figureautorefname{figure}}
    \addto{\extrasenglish}{\def\tableautorefname{table}}
-
 \RequirePackage{mathptmx} % times font
 \RequirePackage{couriers} % monospace fonts
-\RequirePackage{helvet}   % for sans serif fonts (\textsf{...} or \sffamiliy)
+\RequirePackage[scaled=0.91]{helvet}   % for sans serif fonts (\textsf{...} or \sffamiliy)
 \RequirePackage{pifont}   % symbols
-\RequirePackage{textcomp} % symbols
+\RequirePackage[full]{textcomp} % symbols
+\RequirePackage{upquote}
 \RequirePackage{microtype}% microtypographic extensions
 \RequirePackage{xspace}   % automatic spacing with own commands
 \RequirePackage{graphicx}
@@ -146,7 +148,7 @@
    \reversemarginpar
    \setlength{\marginparwidth}{20mm}
 
-\RequirePackage[babel]{csquotes}
+\RequirePackage[autostyle]{csquotes}
 \RequirePackage[backend=biber,%
    style=authoryear,%
    ]{biblatex}
