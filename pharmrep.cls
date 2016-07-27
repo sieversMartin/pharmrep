@@ -22,7 +22,23 @@
 %% This work consists of all files listed in manifest.txt.
 \NeedsTeXFormat{LaTeX2e}[1999/12/01]
 \ProvidesClass{pharmrep}
-    [2016/04/26 v2.0 PharmRep -- a LaTeX package for medical reports]
+    [2016/07/27 v2.0 PharmRep -- a LaTeX package for medical reports]
+  %         \item subitem 1
+  %         \item subitem 2
+  %         \begin{itemize}
+      %             \item subsubitem 1
+      %             \item subsubitem 2
+      %         \end{itemize}
+  %         \item subitem 3
+  %     \end{enumerate}
+%%% master.tex file:
+%%% TODO: %%%todo{a comment in the margin}Comments can be included with \verb|\todo{text}| for comments in the %margin and \verb|[inline]{text}| for comments in the text. Do % TODO: % not use \verb|\todo|-comments within other %environments (e.g. figures, tables, etc.)
+%%% TODO: %%%%todo[inline, color=green]{a green inline comment}
+%%% TODO: %%%%todo{differentiation between separate 'List of Abbreviations' and 'Glossary' foreseen?}
+%%% TODO: %%%todo{description to convert arbitrary graphs and documents (e.g. powerpoint slides) into pdf/a %documents using printer functionality}
+%%% TODO: %%%todo{other useful things for pdf/a compatibility using Acrobat Professional}
+%%% TODO: %%%todo{an BB: Diesen Abschnitt bitte auf Korrektheit prüfen}
+%%% TODO: %%%todo{an BJ: Subfolder mit CTD Example-Datei erzeugen und als screenshot-Figure einbinden}
 \RequirePackage{kvoptions}
 \SetupKeyvalOptions {
    family  = pharmrep,%
@@ -58,7 +74,6 @@
    \addto{\captionsenglish}{\renewcommand*{\contentsname}{Table of Contents}}
    \addto{\extrasenglish}{\def\figureautorefname{figure}}
    \addto{\extrasenglish}{\def\tableautorefname{table}}
-
 \RequirePackage{mathptmx} % times font
 \RequirePackage{couriers} % monospace fonts
 \RequirePackage[scaled=0.91]{helvet}   % for sans serif fonts (\textsf{...} or \sffamiliy)
@@ -100,13 +115,39 @@
    \setkomafont{pageheadfoot}{\small}
    \setkomafont{pagenumber}{\small}
    \clearscrheadfoot
-    \ihead{\begin{minipage}[b][16mm]{0.48\textwidth}Applicant: \@Applicant\\Drug Product:
-    \@DrugProduct\hspace{0pt}\end{minipage}}
-    \ohead{\begin{minipage}[b][16mm]{0.48\textwidth}\raggedleft\@PharmRepTitle\hspace{0pt}\end{minipage}}
-    \ifoot{\begin{minipage}[t][10mm]{0.3\textwidth}\vspace{0pt}\@eCTDno\end{minipage}}
-    \cfoot{\begin{minipage}[t][10mm]{0.3\textwidth}\vspace{0pt}\centering\jobname{}\end{minipage}}
-    \ofoot{\begin{minipage}[t][10mm]{0.3\textwidth}\vspace{0pt}\flushright\pagemark/\upshape\pageref*{LastPage}\end{minipage}}
-    \pagestyle{scrheadings}
+   \ihead{%
+      \begin{minipage}[b][16mm]{0.48\textwidth}%
+         Applicant: \@Applicant\\%
+         Drug Product: \@DrugProduct\hspace{0pt}%
+      \end{minipage}%
+   }%
+   \ohead{%
+      \begin{minipage}[b][16mm]{0.48\textwidth}%
+         \raggedleft%
+         \@PharmRepTitle\hspace{0pt}%
+      \end{minipage}%
+   }%
+   \ifoot{%
+      \begin{minipage}[t][10mm]{0.3\textwidth}%
+         \vspace{0pt}%
+         \@eCTDno%
+      \end{minipage}%
+   }%
+   \cfoot{%
+      \begin{minipage}[t][10mm]{0.3\textwidth}%
+         \vspace{0pt}%
+         \centering%
+         \jobname{}%
+      \end{minipage}%
+   }
+   \ofoot{%
+      \begin{minipage}[t][10mm]{0.3\textwidth}%
+         \vspace{0pt}%
+         \flushright%
+         \pagemark/\upshape\pageref*{LastPage}%
+      \end{minipage}%
+   }%
+   \pagestyle{scrheadings}
 \newcommand{\landscapeformat}{%
    \clearpage%
    \pdfpagewidth=\paperheight%
@@ -119,24 +160,26 @@
    \restoregeometry}
 \renewcommand{\fps@table}{htbp}
 \renewcommand{\fps@figure}{htbp}
-\RequirePackage[justification=RaggedRight,singlelinecheck=false,labelfont=bf,hypcap=false]{caption}
+\RequirePackage[%
+   justification=RaggedRight,%
+   singlelinecheck=false,%
+   labelfont=bf,%
+   hypcap=false]{caption}%%%TODO: Umsteigen auf KOMA-Script-Bordmittel?
 \RequirePackage{rotating}
 \RequirePackage{booktabs}
 \RequirePackage{multirow}
 \RequirePackage{ltablex}
 \RequirePackage{enumitem}
-   \setlist[1]{parsep=4pt}
+\setlist[1]{parsep=4pt}
 \RequirePackage[backgroundcolor=orange!40,%
     linecolor=black!20!orange,%
     textsize=footnotesize,%
     colorinlistoftodos]{todonotes}
-   \reversemarginpar
+   \reversemarginpar%
    \setlength{\marginparwidth}{20mm}
-
 \RequirePackage[autostyle]{csquotes}
 \RequirePackage[backend=biber,%
-   style=authoryear,%
-   ]{biblatex}
+   style=authoryear]{biblatex}
 \RequirePackage{xpatch}% author bold
    \xpretobibmacro{author}{\mkbibbold\bgroup}{}{}
    \xapptobibmacro{author}{\egroup}{}{}
@@ -145,8 +188,11 @@
    \renewcommand*{\labelnamepunct}{\mkbibbold{\addcolon\space}}
 \AtEndPreamble{%
    \ifdefempty{\@BibFileName}{%
-      \ClassError{pharmrep}{You have to provide a bib file!}{Please use the macro
-      \string\BibFileName{<MYFILE.bib>} in the preamble}}%
+      \ClassError{pharmrep}%
+         {You have to provide a bib file!}%
+         {Please use the macro \string\BibFileName{<MYFILE.bib>}\space in
+            the preamble}%
+      }%
       {\addbibresource{\@BibFileName}}%
 }%
 \RequirePackage[pdftex,pdfa]{hyperref}%
@@ -178,10 +224,11 @@
    \setcounter{biburllcpenalty}{9000}%
    \setcounter{biburlucpenalty}{9000}%
 \RequirePackage[nopostdot,nonumberlist,toc]{glossaries}
-   \setlength{\glspagelistwidth}{\linewidth}
+\setlength{\glspagelistwidth}{\linewidth}
 \RequirePackage{glossary-list}
-   \setglossarystyle{list}
-   \makenoidxglossaries
+\setglossarystyle{list}
+\makenoidxglossaries
+%%%      \renewcommand{\glsnamefont}[1]{\bfseries #1}
 \setcounter{tocdepth}{4}
 \setcounter{secnumdepth}{4}
 %%%\AtBeginDocument{\addto\extrasenglish{\def\figureautorefname{Abb.}}
@@ -199,22 +246,20 @@
 \newcommand*{\eCTDno}[1]{\renewcommand*{\@eCTDno}{#1}}
 \newcommand*{\BibFileName}[1]{\renewcommand*{\@BibFileName}{#1}}
 \AtBeginDocument{%
-   \listoftodos % List of ToDo's if at least 1 \todo{xxx} is present in the document
-   \clearpage
-
-   \pdfbookmark[1]{\@PharmRepTitle}{Sec:Title}
-   \section*{\@PharmRepTitle}
-   \bigskip
-
-   \tableofcontents
-   \clearpage
-   \ifnum\totvalue{table}>0
-      \listoftables
-      \clearpage
+   \listoftodos%
+   \clearpage%
+   \pdfbookmark[1]{\@PharmRepTitle}{Sec:Title}%
+   \section*{\@PharmRepTitle}%
+   \bigskip%
+   \tableofcontents%
+   \clearpage%
+   \ifnum\totvalue{table}>0%
+      \listoftables%
+      \clearpage%
    \fi%
-   \ifnum\totvalue{figure}>0
-      \listoffigures
-      \clearpage
+   \ifnum\totvalue{figure}>0%
+      \listoffigures%
+      \clearpage%
    \fi%
-   \cleardoubleemptypage
+   \cleardoubleemptypage%
 }%

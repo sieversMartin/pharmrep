@@ -23,7 +23,10 @@ used in the LaTeX Project Public License, are to be interpreted
 in the case of this work.
 
 April 12, 2016 (vers. 2.0)
+<<<<<<< HEAD
 
+=======
+>>>>>>> a64358dde53ecbf5b8f09058597af032bd4579fa
 
 
 MEANING OF THE TERM "Work"
